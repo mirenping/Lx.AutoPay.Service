@@ -1,0 +1,4 @@
+﻿{    
+    "EnableFileLog": true,      //是否记录文件日志
+    "EnableDataBaseLog": true   //是否记录数据日志  
+}

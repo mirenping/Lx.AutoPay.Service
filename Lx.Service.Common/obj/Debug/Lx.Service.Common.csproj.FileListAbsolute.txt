@@ -1,0 +1,11 @@
+E:\output\Lx.Service.Common.xml
+E:\output\Lx.Service.Common.dll
+E:\output\Lx.Service.Common.pdb
+E:\11\Lx.Service.Common\bin\Debug\Lx.Service.Common.dll
+E:\11\Lx.Service.Common\bin\Debug\Lx.Service.Common.pdb
+E:\11\Lx.Service.Common\obj\Debug\Lx.Service.Common.dll
+E:\11\Lx.Service.Common\obj\Debug\Lx.Service.Common.pdb
+E:\Lx.AutoPay.Service\Lx.Service.Common\bin\Debug\Lx.Service.Common.dll
+E:\Lx.AutoPay.Service\Lx.Service.Common\bin\Debug\Lx.Service.Common.pdb
+E:\Lx.AutoPay.Service\Lx.Service.Common\obj\Debug\Lx.Service.Common.dll
+E:\Lx.AutoPay.Service\Lx.Service.Common\obj\Debug\Lx.Service.Common.pdb

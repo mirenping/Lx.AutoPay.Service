@@ -1,0 +1,14 @@
+﻿{
+    "_type": "Lx.Common.Implement.CacheStrategy.RedisCacheStrategy,Lx.Common.Implement",
+    "AllowAdmin": true,
+  "Hosts": [
+    {
+      "Host": "10.10.10.11",
+      "Port": 6379
+    },
+    {
+      "Host": "10.10.13.10",
+      "Port": 6379
+    }
+  ]
+}

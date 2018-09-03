@@ -1,0 +1,320 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)\output\debug\Lx.Common.Models.dll" #>
+<#@ assembly name="$(SolutionDir)\output\debug\Lx.Service.WcfContract.dll" #>
+<#@ assembly name="System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="Lx.Service.WcfContract" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Runtime.CompilerServices" #>
+<#@ import namespace="System.ServiceModel" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#@ include file="MultiDocument.ttinclude" #>
+<#@ output extension=".cs" encoding="gb2312" #>  
+<# var manager = new Manager(Host, GenerationEnvironment, true) { OutputPath = Path.GetDirectoryName(Host.TemplateFile)}; #>
+<# var assembly= Assembly.Load(File.ReadAllBytes(Host.ResolvePath(@"..\output\debug\Lx.Service.WcfContract.dll"))); #>
+<# @namespace = "Lx.Service.WcfClient"; #>
+<# contractNamespace = "Lx.Service.WcfContract"; #>
+<# 
+foreach (var contractType in assembly.GetExportedTypes().Where(x=>x.IsInterface && x.GetCustomAttribute<ServiceContractAttribute>() != null))
+{
+    var clientTypeName = contractType.Name.Substring(1) + "Client"; 
+	manager.StartBlock(clientTypeName+"Proxy.cs"); 
+
+	RenderUsing(contractType);  
+	RenderNamespaceBegin();
+	RenderContractClass(contractType);
+	RenderClientClass(contractType);
+	RenderProxyClass(contractType);
+	RenderNamespaceEnd();
+	manager.EndBlock();
+}
+manager.Process(true);
+#>
+
+
+<#+
+
+    public string @namespace = "";
+    public string contractNamespace = "";
+	// render the using
+    void RenderUsing(Type contractType)
+    {
+#>
+	using System;
+	using System.Data;
+	using System.ServiceModel;
+	using System.Threading.Tasks;
+	using Lx.Service.WcfClient;
+	using Lx.Service.WcfContract;
+	using System.Collections.Generic;
+	using Lx.Common.Models.Var;
+	using Lx.Common.Models.DataBase;
+	using Lx.Common.Models.Para;
+	
+<#+
+    }
+
+
+	// render the namespace begin
+    void RenderNamespaceBegin()
+    {
+#>
+namespace <#= @namespace #> 
+{
+<#+
+    }
+
+
+	// render the namespace end
+    void RenderNamespaceEnd()
+    {
+#>
+}
+<#+
+    }
+
+	// render the contract method
+	private void RenderContractMethod(MethodInfo method)
+    {
+#>
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+		<#= GeneratorHelper.GetQuesMarkByType(method.ReturnType) #> <#= method.Name #>(<#= GeneratorHelper.GetParanetersDefination(method )#>);
+
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+		Task<<#= GeneratorHelper.GetQuesMarkByType(method.ReturnType) #>> <#= method.Name #>Async(<#= GeneratorHelper.GetParanetersDefination(method )#>);
+<#+
+    }
+
+
+	// render the client method
+	private void RenderClientMethod(MethodInfo method)
+    {
+#>
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+		public <#= GeneratorHelper.GetQuesMarkByType(method.ReturnType) #> <#= method.Name #>(<#= GeneratorHelper.GetParanetersDefination(method )#>)
+		{
+            return this.Channel.<#= method.Name #>(<#= GeneratorHelper.GetParanetersInvocation(method )#>);
+		}
+
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+		public Task<<#= GeneratorHelper.GetQuesMarkByType(method.ReturnType) #>> <#= method.Name #>Async(<#= GeneratorHelper.GetParanetersDefination(method )#>)
+		{
+            return this.Channel.<#= method.Name #>Async(<#= GeneratorHelper.GetParanetersInvocation(method )#>);
+		}
+<#+
+    }
+
+	// render the proxy method
+	private void RenderProxyMethod(MethodInfo method)
+	{
+	    var endPointNameParameterDefination = "string endPontName = \"\"";
+	    var endPointNameParameterInvocation = ", endPontName";
+	    if (method.GetParameters().Length > 0)
+	    {
+			endPointNameParameterDefination = ", " + endPointNameParameterDefination;
+	    }
+#>
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+		public static <#= GeneratorHelper.GetQuesMarkByType(method.ReturnType) #> <#= method.Name #>(<#= GeneratorHelper.GetParanetersDefination(method )#><#= endPointNameParameterDefination #>)
+		{
+            return CallMethod(x=> x.<#= method.Name #>(<#= GeneratorHelper.GetParanetersInvocation(method )#>)<#= endPointNameParameterInvocation #>);
+		}
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+		public static Task<<#= GeneratorHelper.GetQuesMarkByType(method.ReturnType) #>> <#= method.Name #>Async(<#= GeneratorHelper.GetParanetersDefination(method )#><#= endPointNameParameterDefination #>)
+		{
+            return CallMethodAsync(x=> x.<#= method.Name #>Async(<#= GeneratorHelper.GetParanetersInvocation(method )#>)<#= endPointNameParameterInvocation #>);
+		}
+<#+
+    }
+
+
+	// RenderContractClass
+    void RenderContractClass(Type contractType)
+    {
+		var contractTypeName = contractType.Name;
+#>
+	/// <summary>
+	/// </summary>
+	[ServiceContract(Namespace = "<#= contractNamespace #>", Name = "<#= contractTypeName #>")]
+	public partial interface <#= contractTypeName #>
+	{
+<#+
+		foreach(var method in contractType.GetMethods().Where(x=>x.GetCustomAttribute<OperationContractAttribute>(false) != null))
+		{
+			RenderContractMethod(method);
+		}
+#> 
+	} 
+<#+ 
+    } 
+
+	// RenderContractClass
+    void RenderClientClass(Type contractType)
+    {
+		var contractTypeName = contractType.Name;
+		var clientTypeName = contractType.Name.Substring(1) + "Client";
+#>
+
+	/// <summary>
+	/// </summary>		
+	public partial class <#= clientTypeName #> : ClientBase<<#= contractTypeName #>>, <#= contractTypeName #>
+	{ 
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public <#= clientTypeName #>() :
+            base()
+        {
+        }
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public <#= clientTypeName #>(string endpointConfigurationName) :
+            base(endpointConfigurationName )
+        {
+        }
+
+<#+
+		foreach(var method in contractType.GetMethods().Where(x=>x.GetCustomAttribute<OperationContractAttribute>(false) != null))
+		{
+			RenderClientMethod(method);
+		}
+#>
+	} 
+<#+ 
+    }
+
+	// Render Proxy Class
+    void RenderProxyClass(Type contractType)
+    {
+		var contractTypeName = contractType.Name;
+		var clientTypeName = contractType.Name.Substring(1) + "Client";
+		var proxyTypeName = contractType.Name.Substring(1) + "ClientProxy";
+#>
+
+	/// <summary>
+	/// </summary>
+	public partial class <#= proxyTypeName #> : ClientProxyBase<<#= clientTypeName #>>
+	{ 
+<#+
+		foreach(var method in contractType.GetMethods().Where(x=>x.GetCustomAttribute<OperationContractAttribute>(false) != null && x.ReturnType.IsGenericType && x.ReturnType.GetGenericTypeDefinition().Name.StartsWith("FeedBackResponse")))
+		{
+			RenderProxyMethod(method);
+		}
+#>
+	} 
+<#+ 
+    }
+
+	// GeneratorHelper
+	public class GeneratorHelper
+    {
+        public static readonly string StringType = "String";
+        public static readonly string DateTimeType = "DateTime";
+
+	    public static string GetParanetersDefination(MethodInfo methodInfo)
+	    {
+			List<string> args = new List<string>();
+	        foreach (var parameterInfo in methodInfo.GetParameters())
+	        {
+	            args.Add(GetQuesMarkByType(parameterInfo.ParameterType) + " " + parameterInfo.Name);
+	        }
+	        return string.Join(",", args);
+	    }
+	    public static string GetParanetersInvocation(MethodInfo methodInfo)
+	    {
+			List<string> args = new List<string>();
+	        foreach (var parameterInfo in methodInfo.GetParameters())
+	        {
+	            args.Add(parameterInfo.Name);
+	        }
+	        return string.Join(",", args);
+	    }
+        public static string GetQuesMarkByType(Type type)
+        {
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof (Nullable<>))
+            {
+                return GetQuesMarkByType(type.GetGenericArguments()[0]) + "?";
+            }
+            if (type.IsArray)
+            {
+                return GetQuesMarkByType(type.GetElementType()) + "[]";
+            }
+            if (type.IsEnum)
+            {
+                return type.Name;
+            }
+            switch (Type.GetTypeCode(type))
+            {  
+                case TypeCode.Boolean:
+                    return "bool";
+                case TypeCode.Char:
+                    return "char";
+                case TypeCode.SByte:
+                    return "sbyte";
+                case TypeCode.Byte:
+                    return "byte";
+                case TypeCode.Int16:
+                    return "short";
+                case TypeCode.UInt16:
+                    return "ushort";
+                case TypeCode.Int32:
+                    return "int";
+                case TypeCode.UInt32:
+                    return "uint";
+                case TypeCode.Int64:
+                    return "long";
+                case TypeCode.UInt64:
+                    return "ulong";
+                case TypeCode.Single:
+                    return "Single";
+                case TypeCode.Double:
+                    return "double";
+                case TypeCode.Decimal:
+                    return "decimal";
+                case TypeCode.DateTime:
+                    return "DateTime";
+                case TypeCode.String:
+                    return "string";
+                default:
+                {
+                    if (type.IsGenericType)
+                    {
+                        return type.Name.Substring(0, type.Name.IndexOf("`")) + "<" +
+                               String.Join(", ", type.GetGenericArguments().Select(x => GetQuesMarkByType(x))) + ">";
+                    }  
+                    return type.Name;
+                }
+            }
+            
+        }
+    }
+
+#>

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lx.Service.WcfHelper</name>
+    </assembly>
+    <members>
+        <member name="M:Lx.Service.WcfHelper.LogServiceHelper.TestLog">
+            <summary>
+            作者:刘长青
+            时间:2015-10-10
+            功能:测试日志
+            </summary>            
+        </member>
+        <member name="M:Lx.Service.WcfHelper.LogServiceHelper.GetLogFileContent(System.String)">
+            <summary>
+            功能:获取日志文件内容
+            </summary>
+            <param name="strLogFileName">日志文件名称或路径</param>
+            <returns>日志文件内容</returns>
+        </member>
+        <member name="M:Lx.Service.WcfHelper.LogServiceHelper.SearchLogFiles(System.String)">
+            <summary>
+            功能:搜索日志文件列表
+            </summary>       
+            <param name="strSearchName">搜索名称</param>
+            <returns>日志文件列表</returns>
+        </member>
+        <member name="M:Lx.Service.WcfHelper.LogServiceHelper.SearchLogData(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            功能:搜索日志数据列表 
+            </summary>
+            <param name="strLevel">日志级别</param>
+            <param name="strSource">日志来源</param>
+            <param name="dtmStartTime">日志起始时间</param>
+            <param name="dtmEndTime">日志结束时间</param>
+            <param name="strMessage">日志信息</param>
+            <param name="strAddition">附加信息</param>
+            <returns>日志数据列表 </returns>        
+        </member>
+        <member name="M:Lx.Service.WcfHelper.LogServiceHelper.WriteFileLog(Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String)">
+            <summary>
+            功能:写日志到文件      
+            </summary>
+            <param name="logLevel">日志级别(不同的级别的日志会存入对应的日志文件)</param>
+            <param name="logSource">日志的来源</param>
+            <param name="logValue">需记录的日志值</param>    
+            <param name="logAddition">日志附加信息</param>
+        </member>
+        <member name="M:Lx.Service.WcfHelper.LogServiceHelper.WriteDataBaseLog(Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String)">
+            <summary>
+            功能:写日志到数据库  
+            </summary>
+            <param name="logLevel">日志级别(不同的级别的日志会存入对应的日志文件)</param>
+            <param name="logSource">日志的来源</param>
+            <param name="logValue">需记录的日志值</param>   
+            <param name="logAddition">日志附加信息</param>
+        </member>
+        <member name="M:Lx.Service.WcfHelper.LogServiceHelper.GetLogContent(System.String)">
+            <summary>
+            功能:获取日志内容
+            </summary>
+            <param name="strLogFilePath">日志文件路径</param>
+            <returns>日志内容</returns>
+        </member>
+        <member name="T:Lx.Service.WcfHelper.OrderServiceHelper">
+            <summary>
+            代付订单处理类
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfHelper.OrderServiceHelper.PayOrderAdd(Lx.Common.Models.Var.OrderMqMessage)">
+            <summary>
+            功能描述:代付下单
+            </summary>
+            <param name="orderItme">订单消息队列实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfHelper.OrderServiceHelper.GetTautoTransferInfoByMerchantCode(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32})">
+            <summary>
+            功能描述:获取代付订单列表
+            </summary>
+            <param name="merchantCode">商户号</param>
+            <param name="pageInfo">分页信息</param>
+            <param name="status">订单状态</param>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfHelper.PayOrderMqHelper">
+            <summary>
+            功能描述代付订单消息队列
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfHelper.PayOrderMqHelper.SendPayOrderMessageToMq(Lx.Common.Models.Var.OrderMqMessage)">
+            <summary>
+            功能描述:添加代付订单到消息队列
+            </summary>
+            <param name="orderMessage"></param>
+        </member>
+        <member name="T:Lx.Service.WcfHelper.UserServiceHelper">
+            <summary>
+            功能描述:用户相关服务帮助类
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfHelper.UserServiceHelper.GetUserData(System.Int64)">
+            <summary>
+            功能描述：根据用户Id获取用户信息
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

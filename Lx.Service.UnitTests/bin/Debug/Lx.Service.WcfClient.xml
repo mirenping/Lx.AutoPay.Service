@@ -1,0 +1,500 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lx.Service.WcfClient</name>
+    </assembly>
+    <members>
+        <member name="T:Lx.Service.WcfClient.ClientProxyBase`1">
+            <summary>
+                功能：代理基类
+            </summary>
+            <typeparam name="TChannel">通道类别</typeparam>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ClientProxyBase`1.CallMethod``1(System.Func{`0,Lx.Service.WcfContract.FeedBackResponse{``0}},System.String)">
+            <summary>
+                功能：同步方法调用
+            </summary>
+            <typeparam name="TResult">结果类型</typeparam>
+            <param name="func">待执行的方法</param>
+            <param name="endPointName">客户端终节点名称</param>
+            <returns>调用结果</returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ClientProxyBase`1.CallMethodAsync``1(System.Func{`0,System.Threading.Tasks.Task{Lx.Service.WcfContract.FeedBackResponse{``0}}},System.String)">
+            <summary>
+                功能：异步方法调用
+            </summary>
+            <typeparam name="TResult">结果类型</typeparam>
+            <param name="func">待执行的方法</param>
+            <param name="endPointName">客户端终节点名称</param>
+            <returns>调用结果</returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.ILogService">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.TestService(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.TestServiceAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.TestLog">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.TestLogAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.GetLogFileContent(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.GetLogFileContentAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.SearchLogFiles(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.SearchLogFilesAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.SearchLogData(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.SearchLogDataAsync(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.WriteLog(Lx.Common.Models.Var.WriteLogType,Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.ILogService.WriteLogAsync(Lx.Common.Models.Var.WriteLogType,Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.LogServiceClient">
+            <summary>
+            </summary>		
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.#ctor">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.TestService(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.TestServiceAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.TestLog">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.TestLogAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.GetLogFileContent(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.GetLogFileContentAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.SearchLogFiles(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.SearchLogFilesAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.SearchLogData(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.SearchLogDataAsync(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.WriteLog(Lx.Common.Models.Var.WriteLogType,Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClient.WriteLogAsync(Lx.Common.Models.Var.WriteLogType,Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.LogServiceClientProxy">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.TestService(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.TestServiceAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.TestLog(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.TestLogAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.GetLogFileContent(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.GetLogFileContentAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.SearchLogFiles(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.SearchLogFilesAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.SearchLogData(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.SearchLogDataAsync(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.WriteLog(Lx.Common.Models.Var.WriteLogType,Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.LogServiceClientProxy.WriteLogAsync(Lx.Common.Models.Var.WriteLogType,Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.IOrderService">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IOrderService.TestService(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IOrderService.TestServiceAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IOrderService.PayOrderAdd(Lx.Common.Models.Var.OrderMqMessage)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IOrderService.PayOrderAddAsync(Lx.Common.Models.Var.OrderMqMessage)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IOrderService.GetTautoTransferInfoByMerchantCode(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IOrderService.GetTautoTransferInfoByMerchantCodeAsync(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.OrderServiceClient">
+            <summary>
+            </summary>		
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClient.#ctor">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClient.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClient.TestService(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClient.TestServiceAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClient.PayOrderAdd(Lx.Common.Models.Var.OrderMqMessage)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClient.PayOrderAddAsync(Lx.Common.Models.Var.OrderMqMessage)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClient.GetTautoTransferInfoByMerchantCode(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClient.GetTautoTransferInfoByMerchantCodeAsync(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.OrderServiceClientProxy">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClientProxy.TestService(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClientProxy.TestServiceAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClientProxy.PayOrderAdd(Lx.Common.Models.Var.OrderMqMessage,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClientProxy.PayOrderAddAsync(Lx.Common.Models.Var.OrderMqMessage,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClientProxy.GetTautoTransferInfoByMerchantCode(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32},System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.OrderServiceClientProxy.GetTautoTransferInfoByMerchantCodeAsync(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32},System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.IUserService">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IUserService.TestService(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IUserService.TestServiceAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IUserService.GetUserData(System.Int64)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.IUserService.GetUserDataAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.UserServiceClient">
+            <summary>
+            </summary>		
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClient.#ctor">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClient.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClient.TestService(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClient.TestServiceAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClient.GetUserData(System.Int64)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClient.GetUserDataAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfClient.UserServiceClientProxy">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClientProxy.TestService(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClientProxy.TestServiceAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClientProxy.GetUserData(System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfClient.UserServiceClientProxy.GetUserDataAsync(System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

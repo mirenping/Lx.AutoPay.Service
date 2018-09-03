@@ -1,0 +1,10 @@
+﻿{
+    "_type": "MessageQueue.ActiveMessageQueue",
+    "IsAsync": true,
+  "Channels": {
+    "ActiveMQDev": {
+      "Uri": "failover:(tcp://10.10.10.56:61616,tcp://10.10.10.57:61616,tcp://10.10.10.61:61616)"
+    }
+
+  }
+}

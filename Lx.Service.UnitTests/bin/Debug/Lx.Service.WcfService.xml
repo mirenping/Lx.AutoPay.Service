@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lx.Service.WcfService</name>
+    </assembly>
+    <members>
+        <member name="M:Lx.Service.WcfService.Behaviors.ErrorInterceptorAttribute.Validate(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            功能:用于检查服务宿主和服务说明，从而确定服务是否可成功运行。
+            </summary>
+            <param name="serviceDescription">服务说明。</param><param name="serviceHostBase">当前正在构建的服务宿主。</param>
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ErrorInterceptorAttribute.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            功能:用于向绑定元素传递自定义数据，以支持协定实现。
+            </summary>
+            <param name="serviceDescription">服务的服务说明。</param><param name="serviceHostBase">The host of the service.</param><param name="endpoints">服务终结点。</param><param name="bindingParameters">绑定元素可访问的自定义对象。</param>
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ErrorInterceptorAttribute.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            功能:用于更改运行时属性值或插入自定义扩展对象（例如错误处理程序、消息或参数拦截器、安全扩展以及其他自定义扩展对象）。
+            </summary>
+            <param name="serviceDescription">服务说明。</param><param name="serviceHostBase">当前正在生成的宿主。</param>
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ExceptionOperationInterceptorAttribute.OperationInvoker.#ctor(System.ServiceModel.Dispatcher.IOperationInvoker,System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            功能:方法调用
+            </summary>
+            <param name="oldInvoker">原调用</param>
+            <param name="operationDescription">方法描述</param>
+        </member>
+        <member name="P:Lx.Service.WcfService.Behaviors.ExceptionOperationInterceptorAttribute.OperationInvoker.IsSynchronous">
+            <summary>
+            功能:获取一个值，该值指定调度程序是调用 <see cref="M:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke(System.Object,System.Object[],System.Object[]@)"/> 方法还是调用 <see cref="M:System.ServiceModel.Dispatcher.IOperationInvoker.InvokeBegin(System.Object,System.Object[],System.AsyncCallback,System.Object)"/> 方法。
+            </summary>
+            <returns>
+            如果调度程序调用同步操作，则为 true；否则为 false。
+            </returns>          
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ExceptionOperationInterceptorAttribute.OperationInvoker.AllocateInputs">
+            <summary>
+            功能:返回参数对象的 <see cref="T:System.Array"/>。
+            </summary>
+            <returns>
+            要用作操作的实参的形参。
+            </returns>
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ExceptionOperationInterceptorAttribute.OperationInvoker.Invoke(System.Object,System.Object[],System.Object[]@)">
+            <summary>
+            功能:从一个实例和输入对象的集合返回一个对象和输出对象的集合。
+            </summary>
+            <returns>
+            返回值。
+            </returns>
+            <param name="instance">要调用的对象。</param><param name="inputs">方法的输入。</param><param name="outputs">方法的输出。</param>
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ExceptionOperationInterceptorAttribute.OperationInvoker.InvokeBegin(System.Object,System.Object[],System.AsyncCallback,System.Object)">
+            <summary>
+            功能:异步实现  <see cref="M:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke(System.Object,System.Object[],System.Object[]@)"/> method.
+            </summary>
+            <returns>
+            用来完成异步调用的 <see cref="T:System.IAsyncResult"/>。
+            </returns>
+            <param name="instance">要调用的对象。</param><param name="inputs">方法的输入。</param><param name="callback">异步回调对象。</param><param name="state">关联的状态数据。</param>
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ExceptionOperationInterceptorAttribute.OperationInvoker.InvokeEnd(System.Object,System.Object[]@,System.IAsyncResult)">
+            <summary>
+            功能:异步结束方法。
+            </summary>
+            <returns>
+            返回值。
+            </returns>
+            <param name="instance">调用的对象。</param><param name="outputs">方法的输出。</param><param name="result"><see cref="T:System.IAsyncResult"/> 对象。</param>
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ExceptionOperationInterceptorAttribute.OperationInvoker.GetErrorResponse(System.Object,System.Exception)">
+            <summary>
+            功能:创建错误返回对象
+            </summary>
+            <param name="instance">服务实例对象</param>
+            <param name="ex">错语</param>
+            <returns>错误返回对象</returns>
+        </member>
+        <member name="M:Lx.Service.WcfService.Behaviors.ExceptionOperationInterceptorAttribute.OperationInvoker.GetDataErrorResponse(Lx.Service.Common.DataMessageException)">
+            <summary>
+            功能:创建数据错误返回对象
+            </summary>
+            <param name="instance">服务实例对象</param>
+            <param name="dmex">错误</param>
+            <returns>错误返回对象</returns>
+        </member>
+        <member name="T:Lx.Service.WcfService.LogService">
+            <summary>
+            功能描述:日志服务
+            </summary>      
+        </member>
+        <member name="M:Lx.Service.WcfService.LogService.TestService(System.String)">
+            <summary>
+            功能描述: 测试服务
+            </summary>
+            <param name="strParam"></param>
+            <returns>返回结果</returns>       
+        </member>
+        <member name="M:Lx.Service.WcfService.LogService.TestLog">
+            <summary>
+            功能:测试日志
+            </summary>             
+        </member>
+        <member name="M:Lx.Service.WcfService.LogService.GetLogFileContent(System.String)">
+            <summary>
+            功能:获取日志文件内容
+            </summary>
+            <param name="strLogFileName">日志文件名称或路径</param>
+            <returns>日志文件内容</returns>
+        </member>
+        <member name="M:Lx.Service.WcfService.LogService.SearchLogFiles(System.String)">
+            <summary>
+            功能:搜索日志文件列表
+            </summary>       
+            <param name="strSearchName">搜索名称</param>
+            <returns>日志文件列表</returns>
+        </member>
+        <member name="M:Lx.Service.WcfService.LogService.SearchLogData(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            功能:搜索日志数据列表 
+            </summary>
+            <param name="strLevel">日志级别</param>
+            <param name="strSource">日志来源</param>
+            <param name="dtmStartTime">日志起始时间</param>
+            <param name="dtmEndTime">日志结束时间</param>
+            <param name="strMessage">日志信息</param>
+            <param name="strAddition">附加信息</param>
+            <returns>日志数据列表 </returns>        
+        </member>
+        <member name="M:Lx.Service.WcfService.LogService.WriteLog(Lx.Common.Models.Var.WriteLogType,Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String)">
+            <summary>
+            功能:记录日志消息
+            </summary>
+            <param name="writeLogType">写日志类型</param>
+            <param name="logLevel">日志级别</param>
+            <param name="logSource">日志的来源</param>
+            <param name="logValue">需记录的日志值</param>   
+            <param name="logAddition">日志附加信息</param>      
+        </member>
+        <member name="M:Lx.Service.WcfService.LogService.CombineResponse(Lx.Service.WcfContract.FeedBackResponse{System.String},Lx.Service.WcfContract.FeedBackResponse{System.String},Lx.Service.WcfContract.FeedBackResponse{System.String},Lx.Service.WcfContract.FeedBackResponse{System.String})">
+            <summary>
+            功能:组合处理结果
+            </summary>
+            <param name="fbrReturn">待返回的结果</param>
+            <param name="fbrTemp01">相关结果01</param>
+            <param name="fbrTemp02">相关结果02</param>
+            <param name="fbrTemp03">相关结果03</param>
+        </member>
+        <member name="M:Lx.Service.WcfService.OrderService.TestService(System.String)">
+            <summary>
+            功能描述：测试服务
+            </summary>
+            <param name="strParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfService.OrderService.PayOrderAdd(Lx.Common.Models.Var.OrderMqMessage)">
+            <summary>
+            功能描述:代付下单
+            </summary>
+            <param name="orderItme">订单消息队列实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfService.OrderService.GetTautoTransferInfoByMerchantCode(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32})">
+            <summary>
+            功能描述:获得代付订单列表
+            </summary>
+            <param name="merchantCode">商户号</param>
+            <param name="pageInfo">分页信息</param>
+            <param name="status">订单状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfService.UserService.TestService(System.String)">
+            <summary>
+            功能描述:测试服务
+            </summary>
+            <param name="strParam">监控参数</param>
+            <returns>返回结果</returns>       
+        </member>
+        <member name="M:Lx.Service.WcfService.UserService.GetUserData(System.Int64)">
+            <summary>
+            功能描述：获取用户信息
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

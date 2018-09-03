@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lx.Service.WcfContract</name>
+    </assembly>
+    <members>
+        <member name="T:Lx.Service.WcfContract.FeedBackResponse`1">
+            <summary>
+            功能描述:数据服务操作反馈信息
+            </summary>
+            <typeparam name="TData"></typeparam>
+        </member>
+        <member name="M:Lx.Service.WcfContract.FeedBackResponse`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Lx.Service.WcfContract.FeedBackResponse`1.ResultData">
+            <summary>
+            结果数据
+            </summary>
+        </member>
+        <member name="T:Lx.Service.WcfContract.FeedBackResponseBase">
+            <summary>
+            数据服务操作反馈信息
+            </summary>
+        </member>
+        <member name="P:Lx.Service.WcfContract.FeedBackResponseBase.Result">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:Lx.Service.WcfContract.FeedBackResponseBase.Message">
+            <summary>
+            反馈信息
+            </summary>
+        </member>
+        <member name="P:Lx.Service.WcfContract.FeedBackResponseBase.MsgCode">
+            <summary>
+            反馈信息代码
+            </summary>
+        </member>
+        <member name="P:Lx.Service.WcfContract.FeedBackResponseBase.TotalCount">
+            <summary>
+            分页查询时的总数
+            </summary>
+        </member>
+        <member name="P:Lx.Service.WcfContract.FeedBackResponseBase.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfContract.FeedBackResponseBase.SetServiceErrorMsg(System.Exception)">
+            <summary>
+            功能:设置服务端程序错误信息
+            </summary>
+            <param name="ex">错误信息</param>       
+        </member>
+        <member name="M:Lx.Service.WcfContract.FeedBackResponseBase.SetClientErrorMsg(System.Exception)">
+            <summary>
+            功能:设置客户端程序错误信息
+            </summary>
+            <param name="ex">错误信息</param>       
+        </member>
+        <member name="M:Lx.Service.WcfContract.FeedBackResponseBase.SetMsgCode(System.String,System.String)">
+            <summary>
+            设置数据错误反馈信息代码
+            </summary>
+            <param name="strCode">代码</param>
+            <param name="strMessage">反馈信息</param>
+        </member>
+        <member name="M:Lx.Service.WcfContract.FeedBackResponseBase.SetSuccessMsg(System.String,System.String)">
+            <summary>
+            功能:设置成功反馈信息代码
+            </summary>
+            <param name="strCode">代码</param>
+            <param name="strMessage">反馈信息</param>
+        </member>
+        <member name="T:Lx.Service.WcfContract.ILogService">
+            <summary>
+            功能描述:日志服务
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfContract.ILogService.TestService(System.String)">
+            <summary>
+            功能描述:测试服务
+            </summary>
+            <param name="strParam"></param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:Lx.Service.WcfContract.ILogService.TestLog">
+            <summary>
+            功能:测试日志
+            </summary>               
+        </member>
+        <member name="M:Lx.Service.WcfContract.ILogService.GetLogFileContent(System.String)">
+            <summary>
+            功能:获取日志文件内容
+            </summary>
+            <param name="strLogFileName">日志文件名称或路径</param>
+            <returns>日志文件内容</returns>
+        </member>
+        <member name="M:Lx.Service.WcfContract.ILogService.SearchLogFiles(System.String)">
+            <summary>
+            功能:搜索日志文件列表
+            </summary>       
+            <param name="strSearchName">搜索名称</param>
+            <returns>日志文件列表</returns>
+        </member>
+        <member name="M:Lx.Service.WcfContract.ILogService.SearchLogData(System.String,System.String,System.DateTime,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            功能:搜索日志数据列表 
+            </summary>
+            <param name="strLevel">日志级别</param>
+            <param name="strSource">日志来源</param>
+            <param name="dtmStartTime">日志起始时间</param>
+            <param name="dtmEndTime">日志结束时间</param>
+            <param name="strMessage">日志信息</param>
+            <param name="strAddition">附加信息</param>
+            <returns>日志数据列表 </returns>
+        </member>
+        <member name="M:Lx.Service.WcfContract.ILogService.WriteLog(Lx.Common.Models.Var.WriteLogType,Lx.Common.Models.Var.LogLevel,System.String,System.String,System.String)">
+            <summary>
+            功能:记录日志消息
+            </summary>
+            <param name="writeLogType">写日志类型</param>
+            <param name="logLevel">日志级别</param>
+            <param name="logSource">日志的来源</param>
+            <param name="logValue">需记录的日志值</param>  
+            <param name="logAddition">日志附加信息</param>
+        </member>
+        <member name="T:Lx.Service.WcfContract.IOrderService">
+            <summary>
+            功能描述:订单服务
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfContract.IOrderService.TestService(System.String)">
+            <summary>
+            功能描述:测试服务
+            </summary>
+            <param name="strParam">监控参数</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:Lx.Service.WcfContract.IOrderService.PayOrderAdd(Lx.Common.Models.Var.OrderMqMessage)">
+            <summary>
+            功能描述:代付下单
+            </summary>
+            <param name="orderItme">订单消息队列实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lx.Service.WcfContract.IOrderService.GetTautoTransferInfoByMerchantCode(System.String,Lx.Common.Models.Para.PageInfoParam,System.Nullable{System.Int32})">
+            <summary>
+            功能描述:获得代付订单列表
+            </summary>
+            <param name="merchantCode">商户号</param>
+            <param name="pageInfo">分页信息</param>
+            <param name="status">订单状态</param>
+            <returns></returns>
+        </member>
+        <member name="T:Lx.Service.WcfContract.IUserService">
+            <summary>
+            功能描述:用户服务
+            </summary>
+        </member>
+        <member name="M:Lx.Service.WcfContract.IUserService.TestService(System.String)">
+            <summary>
+            功能描述:测试服务
+            </summary>
+            <param name="strParam">监控参数</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:Lx.Service.WcfContract.IUserService.GetUserData(System.Int64)">
+            <summary>
+            功能描述：获取用户数据
+            </summary>
+            <param name="userId">用户Id</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
